@@ -3,6 +3,7 @@ import { useToast } from '@/hooks/use-toast';
 import { useForm } from 'react-hook-form';
 
 const useAddProperty = ({ setIsModalOpen, onSubmit }) => {
+  // useToast hook to show a toast notification
   const { toast } = useToast();
   const {
     control,
@@ -22,7 +23,7 @@ const useAddProperty = ({ setIsModalOpen, onSubmit }) => {
       date: new Date(),
     },
   });
-
+  // onSubmitForm function to submit the form data
   const onSubmitForm = (data) => {
     onSubmit({
       ...data,

@@ -1,6 +1,4 @@
 'use client';
-
-import { useState, useEffect } from 'react';
 import AddPropertyModal from './AddPropertyModal';
 import Actions from './Actions/Actions';
 import Statistics from './Statistics/Statistics';
@@ -8,8 +6,8 @@ import SalesComponent from './salesAnalysis/SalesComponent';
 import PropertiesCard from './Properties/PropertiesCard';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import useDashboard from '../hooks/useDashboard';
-
 const Dashboard = () => {
+  // Destructure the properties from the useDashboard hook
   const {
     searchTerm,
     setSearchTerm,
@@ -38,6 +36,7 @@ const Dashboard = () => {
           filters={filters}
           setFilters={setFilters}
         />
+        {/* // Statistics component to display the dashboard stats */}
         <Statistics dashboardStats={dashboardStats} salesData={salesData} />
         <SalesComponent salesData={salesData} availableListings={availableListings} />
         <h1 className="text-2xl font-bold p-2">List of Properties</h1>
@@ -51,7 +50,7 @@ const Dashboard = () => {
           )}
         </ScrollArea>
       </main>
-
+      {/* // AddPropertyModal component to add a new property */}
       <AddPropertyModal isOpen={isModalOpen} setIsModalOpen={setIsModalOpen} onSubmit={addProperty} />
     </div>
   );

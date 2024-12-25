@@ -6,6 +6,7 @@ const Statistics = ({ dashboardStats }) => {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
       <Card>
+        {/*   // StatisticsCard component to display the number of properties listed */}
         <CardContent className="p-6">
           <StatisticsCard title={'List Properties'} label={'list'} value={dashboardStats.listProperties} />
         </CardContent>

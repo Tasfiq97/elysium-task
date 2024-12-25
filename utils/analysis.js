@@ -1,5 +1,5 @@
+// Function to update the dashboard stats
 export const updateDashboardStats = (storedProperties, setDashboardStats, setSalesData, setAvailableListings) => {
-  console.log('🚀 ~ updateDashboardStats ~ storedProperties:', storedProperties);
   const totalRevenue = storedProperties.reduce(
     (sum, prop) => sum + (prop.status === 'Rented' ? parseFloat(prop.price) || 0 : 0),
     0

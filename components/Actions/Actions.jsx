@@ -18,6 +18,7 @@ const Actions = ({ searchTerm, setSearchTerm, filters, setFilters, setIsModalOpe
   return (
     <div className="flex flex-col sm:flex-row items-center justify-between mb-6 gap-4">
       <div className="flex items-center gap-4 w-full sm:w-auto">
+        {/* // Search input field */}
         <div className="relative w-full sm:w-[300px]">
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
           <Input
@@ -27,6 +28,7 @@ const Actions = ({ searchTerm, setSearchTerm, filters, setFilters, setIsModalOpe
             className="pl-10 w-full bg-#fff dark:bg-gray-800"
           />
         </div>
+        {/* // Filter dropdown */}
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="outline" className="gap-2">
@@ -67,6 +69,7 @@ const Actions = ({ searchTerm, setSearchTerm, filters, setFilters, setIsModalOpe
           </DropdownMenuContent>
         </DropdownMenu>
       </div>
+      {/* // Add new property button */}
       <div className="flex gap-3 w-full sm:w-auto">
         <Button className="gap-2 w-full sm:w-auto " onClick={() => setIsModalOpen(true)}>
           <Plus className="w-4 h-4" /> Add New Property

@@ -2,6 +2,7 @@ import { updateDashboardStats } from '@/utils/analysis';
 import React, { useEffect, useState } from 'react';
 
 const useDashboard = () => {
+  
   const [properties, setProperties] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
 
@@ -22,13 +23,13 @@ const useDashboard = () => {
     totalPercentage: 0,
     breakdown: [],
   });
-
+ // useEffect to get the stored properties from localStorage
   useEffect(() => {
     const storedProperties = JSON.parse(localStorage.getItem('properties') || '[]');
     setProperties(storedProperties);
     updateDashboardStats(storedProperties, setDashboardStats, setSalesData, setAvailableListings);
   }, []);
-
+  // addProperty function to add a new property
   const addProperty = (newProperty) => {
     const updatedProperties = [...properties, { ...newProperty, id: Date.now() }];
     localStorage.setItem('properties', JSON.stringify(updatedProperties));
@@ -36,7 +37,7 @@ const useDashboard = () => {
     updateDashboardStats(updatedProperties, setDashboardStats, setSalesData, setAvailableListings);
     setIsModalOpen(false);
   };
-
+  // filteredProperties to filter the properties based on the search term and filters
   const filteredProperties = properties.filter((property) => {
     if (filters.type !== 'all' && property.type !== filters.type) return false;
     if (filters.status !== 'all' && property.status !== filters.status) return false;
